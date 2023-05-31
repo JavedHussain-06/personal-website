@@ -24,7 +24,7 @@ export default async function RootLayout({
           <Link href="/" className='bg-gradient-to-r hover:bg-gradient-to-l from-orange-400 via-red-500 to-blue-600  bg-clip-text text-transparent transition duration-250 ease-out font-bold text-lg pl-2' >Javed</Link>
           <div className="flex items-center gap-5 text-sm text-gray-600">
             {pages.map((page) => (
-              <Link key={page._id} href={`/${page.slug}`} className="hover:underline active:underline ">{page.title}</Link>
+              <Link key={page._id} href={`/${page.slug}`} className="hover:underline font-bold ">{page.title}</Link>
             ))}
 
           </div>

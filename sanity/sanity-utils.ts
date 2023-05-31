@@ -36,7 +36,7 @@ export async function getProject(slug : string) : Promise<project> {
     )
 }
 
-export async function getPages() : Promise<Pages[]>{
+export async function getPages() : Promise<page[]>{
     return createClient(clientConfig).fetch(
         groq`*[_type == 'page']{
             _id,
@@ -47,15 +47,16 @@ export async function getPages() : Promise<Pages[]>{
     )
 }
 
-export async function getPage(slug: string) : Promise<page>{
+export async function getPage(slug: string): Promise<page> {
     return createClient(clientConfig).fetch(
-    groq`*[_type == 'page' && slug.current == $slug][0]{
+      groq`*[_type == "page" && slug.current == $slug][0]{
         _id,
         _createdAt,
-        'slug': slug.current,
-        content,
-    }`,
-    {slug}
+        title,
+        "slug": slug.current,
+        content
+      }`,
+      { slug }
     )
+  }
 
-}
